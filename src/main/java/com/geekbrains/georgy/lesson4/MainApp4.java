@@ -7,13 +7,13 @@ public class MainApp4 {
         String [][] strings = {{"3","4" ,"2","0"},{"4","2" , "2" ,"2"},{"4","2" , "2" ,"f"},{"4","2" , "2" ,"2"}};  /*MyArrayDataException*/
 
         try {
-            sumArrayElement(strings);
+            System.out.println(sumArrayElement(strings));
         }catch (MyArraySizeException | MyArrayDataException e ){
             e.printStackTrace();
         }
     }
 
-    public static void sumArrayElement(String [][] array){
+    public static int sumArrayElement(String [][] array){
         checkArray(array);
         int sum = 0;
 
@@ -27,7 +27,7 @@ public class MainApp4 {
             }
         }
 
-        System.out.println("Сумма элементов массива = " + sum);
+        return sum;
     }
 
     public static void checkArray(String [][] array){
