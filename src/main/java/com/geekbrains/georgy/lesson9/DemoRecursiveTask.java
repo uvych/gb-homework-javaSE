@@ -20,13 +20,16 @@ public class DemoRecursiveTask extends RecursiveTask<Integer> {
             for (DemoRecursiveTask subTask : subTasks) {
                 subTask.fork();
             }
+
             int result = 0;
             for (DemoRecursiveTask subTask : subTasks) {
                 if (result < subTask.join()) {
                     result = subTask.join();
                 }
             }
+
             return result;
+
         } else {
             return IntStream.of(data).max().orElse(0);
         }
